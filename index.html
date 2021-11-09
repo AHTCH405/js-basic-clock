@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+
+        }
+
+        body {
+            background: #001f3f;
+        }
+
+        header>h1#title {
+            font-size: 48px;
+            text-align: center;
+            color: #ffd772;
+            letter-spacing: 2px;
+        }
+
+        main {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        main p {
+            font-size: 32px;
+            margin-top: 16px;
+            margin-bottom: 16px;
+            text-align: center;
+            color: #DDDDDD;
+        }
+
+        #user-name {
+            color: #ffd772;
+        }
+
+        strong{
+            color: #ffd772;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 id="title">Kodluyoruz</h1>
+    </header>
+    <main>
+        <p>
+            Merhaba, <span id="user-name">User</span> Hoşgeldin!
+        </p>
+        <p>
+            <span id="hour">00</span>:<span id="minute"></span>:<span id="second"></span>
+            <span id="day">Default</span>
+        </p>
+        <p>
+            Tarihinde <strong>Kodluyoruz Frontend Web Development Patikası</strong> 'nın
+            Javascript bölümü 1. Ödevindesiniz.
+        </p>
+    </main>
+
+    <script>
+        let userInput = prompt('Please enter your name');
+        document.getElementById('user-name').innerHTML = userInput + '!';
+
+        function pageTimer() {
+            let timer = new Date();
+            let days = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
+            document.getElementById('hour').innerHTML = ('0' + timer.getHours()).slice(-2);
+            document.getElementById('minute').innerHTML = ('0' + timer.getMinutes()).slice(-2);
+            document.getElementById('second').innerHTML = ('0' + timer.getSeconds()).slice(-2);
+            //Burda kullanılan .slice(-2) ' nin sebebi tek dijit olduğunda başına 0 eklemek için
+            document.getElementById('day').innerHTML = days[timer.getDay()];
+
+        }
+        setInterval(pageTimer, 100); //0.1 saniyede fonksiyonun tekrar edebilmesi için
+    </script>
+</body>
+
+</html>
